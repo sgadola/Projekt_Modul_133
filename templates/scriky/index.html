@@ -1,0 +1,45 @@
+<!-- templates/cronjob/register.html
+     Used by Index View -->
+{% extends 'scriky/base.html' %}
+
+{% block title %}Knowledgebase Scriky | Home{% endblock %}
+
+{% block content %}
+    <h3>Willkommen zu Scriky, der Notiz-Knowledgebase.</h3><br>
+    <p style="width: 80%">
+        Diese Seite ist dazu gedacht um kleine und verteilte, bzw noch nicht zusammengetragene Notizen in praktische
+        und informative Artikel in Form ähnlich einer Wiki
+        (zB. <a href="https://de.wikipedia.org/wiki/Cron" target="_blank">Wikipedia</a>) zu überführen und
+        zusammenzufassen.</p>
+    <p style="width: 80%">
+        Auf der linken Seite finden Sie die Möglichkeiten Artikel zu erstellen, löschen, und zu bearbeiten.<br>
+        Auch können Sie nach bereits vorhandenen Artikel suchen.<br>
+        Bearbeiten und Löschen der Artikel ist in der Auflistung der Artikel möglich.
+    </p>
+
+    {% if not user.is_authenticated %}
+        <p>Leider sind Sie im Moment nicht eingeloggt.<br>
+            Bitte loggen Sie sich <a href="{% url 'login' %}">hier</a> ein, oder wenn Sie noch kein Login haben
+            können Sie sich <a href="{% url 'register' %}">hier registrieren</a>.</p>
+    {% else %}
+        Wählen Sie die gewünschte Aktion:
+    {% endif %}
+
+    <ul>
+        <li>
+            <a href="{% url 'create_article' %}">Artikel erstellen</a>
+        </li>
+        <li>
+            <a href="{% url 'view_article' %}">Vorhandene Artikel auflisten</a>
+        </li>
+        <!--<li>
+            <a href="{% url 'create_article' %}">Artikel erstellen</a>
+        </li>
+        <li>
+            <a href="{% url 'create_article' %}">Artikel erstellen</a>
+        </li>
+        <li>
+            <a href="{% url 'create_article' %}">Artikel erstellen</a>-->
+        </li>
+    </ul>
+{% endblock %}

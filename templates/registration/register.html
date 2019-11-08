@@ -1,0 +1,20 @@
+<!-- templates/registration/register.html
+     Used by Djangos Registration View -->
+{% extends 'scriky/base.html' %}
+
+{% block title %}Knowledgebase Scriky | Registrieren{% endblock %}
+
+{% block content %}
+    <h2>Neuen Benutzer registrieren</h2>
+    <form method="post" class="post-form">
+        {% csrf_token %}
+
+        <table>
+            {{ form.as_table }}
+
+        </table>
+        <br>
+
+        <button type="submit" class="save btn btn-default">Registrieren</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!-- templates/registration/login.html
+     Used by Djangos Login View -->
+{% extends 'scriky/base.html' %}
+
+{% block title %}Knowledgebase Scriky | Login{% endblock %}
+
+{% block content %}
+    <h2>Login</h2>
+
+    <p>Sie sind nicht angemeldet, bitte melden sie sich an.<br>
+        Alternativ können sie sich auch neu <a href="{% url 'register' %}">registrieren</a>.</p>
+
+    <br>
+
+    <form method="post" class="post-form">
+        {% csrf_token %}
+
+        <table>
+            {{ form.as_table }}
+        </table>
+
+        <button type="submit" class="save btn btn-default">Login</button>
+    </form>
+    <br>
+    <a href="">Passwort vergessen?</a>
+{% endblock %}
